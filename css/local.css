@@ -1,0 +1,32 @@
+/* Fuente personalizada */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+/*Centra el logo del menu*/
+.logocesur {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Centrar los inputs y hacer que no ocupe toda la pantalla */
+.posicionFormulario {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+}
+
+.botonPadre {
+  
+    text-align: center;
+}
+
+.padding{
+    margin-bottom: 10px;
+    min-width: 25em;
+    
+}
+  
