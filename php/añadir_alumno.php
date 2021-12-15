@@ -1,75 +1,98 @@
-<form method="post" action="">Formulario edicion
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Estilos-->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/local.css">
 
 
-    <p>
-        <label>ID</label>
-        <input type="number" name="ID">
-    </p>
-    <p>
-        <label>nombre</label>
-        <input type="text" name="nombre">
-    </p>
-    <p>
-        <label>apellido1</label>
-        <input type="text" name="apellido1">
-    </p>
-    <p>
-        <label>apellido2</label>
-        <input type="text" name="apellido2">
-    </p>
-    <p>
-        <label>contraseña</label>
-        <input type="text" name="contraseña">
-    </p>
-    <p>
-        <label>DNI</label>
-        <input type="text" name="DNI">
-    </p>
-    <p>
-        <label>Fecha nacimineto</label>
-        <input type="date" name="Fnacimineto">
-    </p>
-    <p>
-        <label>email</label>
-        <input type="text" name="email">
-    </p>
-    <p>
-        <label>telefono</label>
-        <input type="number" name="telefono">
-    </p>
-    <p>
-        <label>empresa</label>
-        <input type="text" name="empresa">
-    </p>
-    <p>
-        <label>tutor</label>
-        <input type="text" name="tutor">
-    </p>
-    <p>
-        <label>nºhoras dual</label>
-        <input type="number" name="horas_dual">
-    </p>
-    <p>
-        <label>horas fct</label>
-        <input type="number" name="horas_fct">
-    </p>
-    <p>
-        <label>Observaciones</label>
-        <textarea name="comentarios" rows="5" cols="20">
+    <title>Añade Alumnos</title>
+</head>
+
+<body>
+
+
+    <div class="form-alumno ">
+        <form method="post" action="">Formulario edicion
+
+
+            <p>
+                <label>ID</label>
+                <input type="number" name="ID">
+            </p>
+            <p>
+                <label>Nombre</label>
+                <input type="text" name="nombre">
+            </p>
+
+            <p>
+                <label>Apellido1</label>
+                <input type="text" name="apellido1">
+            </p>
+            <p>
+                <label>Apellido2</label>
+                <input type="text" name="apellido2">
+            </p>
+            <p>
+                <label>Contraseña</label>
+                <input type="text" name="contraseña">
+            </p>
+            <p>
+                <label>DNI</label>
+                <input type="text" name="DNI">
+            </p>
+            <p>
+                <label>Fecha nacimineto</label>
+                <input type="date" name="Fnacimineto">
+            </p>
+            <p>
+                <label>Email</label>
+                <input type="text" name="email">
+            </p>
+            <p>
+                <label>Telefono</label>
+                <input type="number" name="telefono">
+            </p>
+            <p>
+                <label>Empresa</label>
+                <input type="text" name="empresa">
+            </p>
+            <p>
+                <label>Tutor</label>
+                <input type="text" name="tutor">
+            </p>
+            <p>
+                <label>Nºhoras Dual</label>
+                <input type="number" name="horas_dual">
+            </p>
+            <p>
+                <label>Nª horas FCT</label>
+                <input type="number" name="horas_fct">
+            </p>
+            <p>
+                <label>Observaciones</label>
+                <br>
+                <textarea name="comentarios" rows="5" cols="20">
             Escribe aquí tus comentarios
         </textarea>
-    </p>
+            </p>
 
 
 
 
-    <p>
-        <input type="submit" value="Guardar">
-    </p>
-    <!-- <a href="">volver</a>-->
-</form>
+            <p>
+                <input type="submit" value="Guardar">
+            </p>
+            <!-- <a href="">volver</a>-->
+        </form>
+    </div>
 
-<?php
+    <?php
 error_reporting(0);
     /*CONEXION*/
     $servername = "localhost";
@@ -101,3 +124,8 @@ error_reporting(0);
         header("location:index.php");
 
     }
+    ?>
+
+</body>
+
+</html>

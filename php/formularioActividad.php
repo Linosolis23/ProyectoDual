@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1 class="text-center">Añadir actividad prácticas</h1>
-    <form action="" method="post">
+    <form action="nuevaActividad.php" method="post">
         <div class="form-group">
           <label for="fecha">Fecha de realización</label>
           <!-- Sacar la fecha de hoy en el input date con PHP añadiendo este atributo:

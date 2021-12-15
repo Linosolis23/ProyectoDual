@@ -58,20 +58,36 @@
     </p>
 
     </form>
+    
+</body>    
+
+</html>
+
 
 <?php
-    error_reporting(0);
-    /*CONEXION*/
-    $servername = "localhost";
-    $database = "proyectodual";
-    $username = "root";
-    $password = "";
-    $port=3307;
-    $conn = mysqli_connect($servername, $username, $password, $database,$port);
+error_reporting(0);
+/*CONEXION*/
+ $servername = "localhost";
+ $database = "proyectodual";
+ $username = "root";
+ $password = "";
+ $port=3307;
+ $conn = mysqli_connect($servername, $username, $password, $database,$port);
+
+/*Campos a rellenar*/
+$nombre=$_GET['nombreEmp'];
+$telefonoEmp=$_GET['telefonoEmp'];
+$emailEmp=$_GET['emailEmp'];
+$responsableEmp=$_GET['responsableEmp'];
+$comentarios=$_GET['comentarios'];
+
+if ($nombre !=null) {
+    $query="insert into empresa(Nombre_Empresa,Telefono,Email,Responsable,Observaciones)
+    values('".$nombre."','".$telefonoEmp."','".$emailEmp."','".$responsableEmp."','".$comentarios."',)";
+    mysqli_query($conn,$query);
+    header("location:index.php");
+}
 
 
 ?>
 
-</body>    
-
-</html>

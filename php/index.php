@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
-
 <head>
 
     <!--Meta Tags Requeridos-->
@@ -13,16 +11,11 @@
     <link rel="stylesheet" href="../css/local.css">
 
 </head>
-
-
 <body>
 
    
 <!--PNG logo Cesur-->
-<div> <img class="logocesur"  src="https://2019.talent-woman.es/wp-content/uploads/2019/11/CESUR-web.png" alt="Cesur Logo"></div>
-
-
-
+<div> <img class="logocesur"  src="../img/CESUR-web.png" alt="Cesur Logo"></div>
 
 <div class="botonPadre">
 
@@ -34,19 +27,10 @@
 
    <a href="añadir_alumno.php">       <input type="button"  class="btn btn-primary btn-lg padding" value="Mostrar empresas"></a> <br>
 
-   <a href="añadir_alumno.php">      <input type="button"  class="btn btn-primary btn-lg padding" value="Mostrar actividad de alumnos"></a> 
+   <a href="añadir_alumno.php">      <input type="button"  class="btn btn-primary btn-lg padding" value="Mostrar actividad de alumnos"></a> <br>
+
+   <a href="formularioActividad.php"><input type="button"  class="btn btn-primary btn-lg padding" value="Añadir nueva actividad"></a> 
 
 </div>
-
-
-
-
-
-
-
-
 </body>
-
-
-
 </html>

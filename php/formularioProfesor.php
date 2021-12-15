@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1 class="text-center">Añadir nuevo profesor</h1>
-    <form action="" method="post">
+    <form action="nuevoProfesor.php" method="post">
         <div class="form-group">
           <label for="nombre">Nombre</label>
           <input type="text" class="form-control form-control-lg posicionFormulario" name="nombre" placeholder="" required>
