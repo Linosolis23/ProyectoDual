@@ -25,13 +25,13 @@ CREATE TABLE `actividades` (
   `Actividad_realizada` text NOT NULL,
   `Observaciones` text,
   PRIMARY KEY (`ID_Actividad`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `actividades`
 --
 
-INSERT INTO `actividades` VALUES (1,'2021-12-15','Dual',5,'He programado en PHP',NULL),(2,'2021-12-17','FCT',6,'He programado un base de datos',NULL),(3,'2021-12-18','FCT',8,'He desmontado una pc',NULL),(4,'2022-01-19','Dual',34,'Desmontaje de una esponja',NULL),(5,'2022-01-14','FCT',23,'Desmontaje de un estropajo','prueba'),(6,'2021-12-15','Dual',5,'kjlkj','lkhklh');
+INSERT INTO `actividades` VALUES (1,'2021-12-15','Dual',5,'He programado en PHP',NULL),(2,'2021-12-17','FCT',6,'He programado un base de datos',NULL),(3,'2021-12-18','FCT',8,'He desmontado una pc',NULL),(4,'2022-01-19','Dual',34,'Desmontaje de una esponja',NULL),(5,'2022-01-14','FCT',23,'Desmontaje de un estropajo','prueba'),(6,'2021-12-15','Dual',5,'kjlkj','lkhklh'),(7,'2022-02-08','Dual',14,'Realizar labores de becario',NULL),(8,'2022-02-09','FCT',7,'Refactorizar código Javascript',NULL),(9,'2022-02-11','Dual',5,'He programado en javascript',NULL);
 
 --
 -- Table structure for table `alumno`
@@ -55,13 +55,13 @@ CREATE TABLE `alumno` (
   `Observaciones` text,
   `rol` int DEFAULT 2,
   PRIMARY KEY (`ID_Alumno`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `alumno`
 --
 
-INSERT INTO `alumno` VALUES (1,'Pepe','Fernandez','Rodriguez','abc2566d6783cd9eb8a671e9c0147ae3','43563478F','1995-11-16','pepefernandez@cesurformacion.com',622546485,'montajes Paco','Franciso',12,14,NULL,2),(2,'Alberto','Timbales','Sonoros','d8578edf8458ce06fbc5bb76a58c5ca4','666666666','2022-01-12','wfkjb@kjdbf.com',952124578,'Jamones Jabugo','elprofe',23,43,NULL,2),(3,'Dolores','Fuertes','DeBarriga','d8578edf8458ce06fbc5bb76a58c5ca4','888888888','2022-01-22','sjbcv@dovn.com',952324587,'Maquillajes Choni','tu profe',15,17,'No sabe namas que pintar las uñas',2),(4,'Manuel','Gonzalez','Patiño','f13bb1bed03db9d68a7d9a48aafeec78','28356835r','2000-02-14','manu@cesu.com',678762347,'Restaurante Japones','Federico',67,98,NULL,2),(5,'juan','diaz','gutierrez','81dc9bdb52d04dc20036dbd8313ed055','40330002H','1995-12-15','juandiaz@cesurformacion.com',699887654,'ayesa','reyes',345,0,NULL,2),(6,'Carlos','Santana','Marquez','dc599a9972fde3045dab59dbd1ae170b','85712485H','2022-01-11','carlos@cesur.com',952481587,'Salutis','a',67,23,NULL,2);
+INSERT INTO `alumno` VALUES (1,'Pepe','Fernandez','Rodriguez','abc2566d6783cd9eb8a671e9c0147ae3','43563478F','1995-11-16','pepefernandez@cesurformacion.com',622546485,'montajes Paco','Franciso',12,14,NULL,2),(2,'Alberto','Timbales','Sonoros','d8578edf8458ce06fbc5bb76a58c5ca4','666666666','2022-01-12','wfkjb@kjdbf.com',952124578,'Jamones Jabugo','elprofe',23,43,NULL,2),(3,'Dolores','Fuertes','DeBarriga','d8578edf8458ce06fbc5bb76a58c5ca4','888888888','2022-01-22','sjbcv@dovn.com',952324587,'Maquillajes Choni','tu profe',15,17,'No sabe namas que pintar las uñas',2),(4,'Manuel','Gonzalez','Patiño','f13bb1bed03db9d68a7d9a48aafeec78','28356835r','2000-02-14','manu@cesu.com',678762347,'Restaurante Japones','Federico',67,98,NULL,2),(5,'juan','diaz','gutierrez','81dc9bdb52d04dc20036dbd8313ed055','40330002H','1995-12-15','juandiaz@cesurformacion.com',699887654,'ayesa','reyes',345,0,NULL,2),(6,'Carlos','Santana','Marquez','dc599a9972fde3045dab59dbd1ae170b','85712485H','2022-01-11','carlos@cesur.com',952481587,'Salutis','a',67,23,NULL,2),(7,'Juan Jose','Martinez','de la Rosa','9380dbe1d7116a06e477d6f0ac6f0f39','44444444R','2008-02-13','juanjo@cesur.com',666112233,'Montajes Paco','Antonio',34,57,NULL,2),(8,'Diego','Escarlata','Mondragon','078c007bd92ddec308ae2f5115c1775d','12345678H','2006-04-14','diego@cesur.com',952674851,'Electronica Vadillo','reyes',76,78,NULL,2),(9,'hhh','hhh','hhh','a3aca2964e72000eea4c56cb341002a4','kkkkkkkkk','2022-02-09','h@cesur.com',952365486,'Montajes Paco','Admin',255,25,NULL,2);
 
 --
 -- Table structure for table `empresa`
@@ -126,7 +126,7 @@ CREATE TABLE `alumno_actividad` (
 -- Dumping data for table `alumno_actividad`
 --
 
-INSERT INTO `alumno_actividad` VALUES (1,1),(2,3),(3,4),(4,5),(5,6);
+INSERT INTO `alumno_actividad` VALUES (1,1),(6,1),(2,3),(3,4),(4,5),(5,6),(7,8),(8,8);
 
 --
 -- Table structure for table `alumno_profesor`
@@ -146,4 +146,4 @@ CREATE TABLE `alumno_profesor` (
 -- Dumping data for table `alumno_profesor`
 --
 
-INSERT INTO `alumno_profesor` VALUES (1,2),(8,3),(8,4),(8,5),(2,6);
+INSERT INTO `alumno_profesor` VALUES (13,1),(1,2),(8,3),(8,4),(8,5),(2,6),(13,7),(13,8);
