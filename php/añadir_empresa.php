@@ -50,6 +50,5 @@ session_start();
         <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
         <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
     </form>
-    <?php var_dump($_SESSION) ?>
 </body>
 </html>

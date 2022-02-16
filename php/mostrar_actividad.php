@@ -54,17 +54,18 @@ session_start();
 
 
 
-<body class="text-center">
+<body>
     
 
     <div class="encabezado">
        <img class="logo" alt="logo" src="../img/CESUR-web.png">
     </div>
 
+<div class="text-center">
     <h3><?php echo $mensaje_h1 ?></h3>
-
     <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
-
+</div>
+    
 <div class="tablon">
     <table id="tabla" class="display table">
         <thead>
@@ -112,7 +113,9 @@ session_start();
 </table>
 </div>
 
-<input type="button" id="GenerarMysql" class="btn btn-outline-danger" value="Generar PDF">
+<div class="text-center">
+    <input type="button" id="GenerarMysql" class="btn btn-outline-danger" value="Generar PDF">
+</div>
 
 <!-- JPDF-->
 

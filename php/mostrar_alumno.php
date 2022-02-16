@@ -1,3 +1,16 @@
+<?php
+session_start();
+require 'lib/consultas.php';
+$BaseDatos=new consultas();
+
+if ($_SESSION["Rol"] == 0) {
+    $resultado=$BaseDatos->mostrarAlumnoAdmin();
+}
+else {
+    $resultado=$BaseDatos->mostraralumno();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,46 +18,91 @@
 
     <!--Meta Tags Requeridos-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Link estilos boostrap-->
+    <link rel="stylesheet" href="../css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/local.css">
 
+</head>
 <body>
 
-    <div class="encabezado">
-        <img class="logo" alt="logo" src="../img/CESUR-web.png">
-    </div>
+<div class="encabezado">
+    <img class="logo" alt="logo" src="../img/CESUR-web.png">
+</div>
 
+<div class="text-center">
     <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
-    <div>
-        <form action="consultas.php" method="post">
+</div>
 
-            Escribe id para elimiar: <input type="number" name="Id_eliminarAl" />
-
-            <input type="submit" />
-
-        </form>
-    </div>
-</body>
+<div class="tablon">
+    <table id="tabla" class='display table'>
+        <thead>
+            <tr>
+                <th> ID_Alumno </th>
+                <th> Nombre </th>
+                <th> Primer Apellido </th>
+                <th> Segundo Apellido </th>
+                <th> DNI </th>
+                <th> Fecha_Nacimiento </th>
+                <th> Email </th>
+                <th> Telefono </th>
+                <th> Empresa </th>
+                <th> Tutor </th>
+                <th> NºHoras_Dual </th>
+                <th> NºHoras_FCT </th>
+                <th> Observaciones </th>
+                <th> </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
 <?php
-
-session_start();
-
-
-    require 'lib/consultas.php';
-$BaseDatos=new consultas();
-$resultado=$BaseDatos->mostraralumno();
-echo "<table class='table' border=1 align='center'> <tr><th> ID_Alumno </th> <th> Nombre </th><th> Apellido1 </th><th> Apellido2 </th><th> DNI </th><th> Fecha_Nacimiento </th><th> Email </th>
-<th> Telefono </th><th> Empresa </th><th> Tutor </th><th> NºHoras_Dual </th><th> NºHoras_FCT </th><th> Observaciones </th></tr>";
-
-
-
 foreach($resultado as $alumno){
-    echo "<tr><td>" . $alumno["ID_Alumno"] ."</td> <td>". $alumno["Nombre"]."</td> <td>". $alumno["Apellido1"]."</td><td>". $alumno["Apellido2"]."</td><td>". $alumno["DNI"]."</td><td>"
-    . $alumno["Fecha_Nacimiento"]."</td><td>". $alumno["Email"]."</td><td>". $alumno["Telefono"]."</td><td>". $alumno["Empresa"]."</td><td>". $alumno["Tutor"]."</td>
-    <td>". $alumno["NºHoras_Dual"]."</td><td>". $alumno["NºHoras_FCT"]."</td><td>". $alumno["Observaciones"]."</td>";
+    echo "<tr>";
+        echo "<td>". $alumno["ID_Alumno"] ."</td>";
+        echo "<td>". $alumno["Nombre"]."</td>";
+        echo "<td>". $alumno["Apellido1"]."</td>";
+        echo "<td>". $alumno["Apellido2"]."</td>";
+        echo "<td>". $alumno["DNI"]."</td>";
+        echo "<td>". $alumno["Fecha_Nacimiento"]."</td>";
+        echo "<td>". $alumno["Email"]."</td>";
+        echo "<td>". $alumno["Telefono"]."</td>";
+        echo "<td>". $alumno["Empresa"]."</td>";
+        echo "<td>". $alumno["Tutor"]."</td>";
+        echo "<td>". $alumno["NºHoras_Dual"]."</td>";
+        echo "<td>". $alumno["NºHoras_FCT"]."</td>";
+        echo "<td>". $alumno["Observaciones"]."</td>";
+        echo "<td><a href='modAlumno.php?id=".$alumno["ID_Alumno"]."'><input type='button' class='btn btn-info' value='Modificar'></a></td>";
+        echo "<td><a href='deleteAlumno.php?id=".$alumno["ID_Alumno"]."'><input type='button' class='btn btn-danger' value='Eliminar'></a></td>";
     echo "</tr>";   
 }
 ?>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th> ID_Alumno </th>
+                <th> Nombre </th>
+                <th> Primer Apellido </th>
+                <th> Segundo Apellido </th>
+                <th> DNI </th>
+                <th> Fecha_Nacimiento </th>
+                <th> Email </th>
+                <th> Telefono </th>
+                <th> Empresa </th>
+                <th> Tutor </th>
+                <th> NºHoras_Dual </th>
+                <th> NºHoras_FCT </th>
+                <th> Observaciones </th>
+                <th> </th>
+                <th> </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.dataTables.min.js"></script>
+<script src="../js/tablasJquery.js"></script>
+</body>
+</html>

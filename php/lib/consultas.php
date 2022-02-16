@@ -57,10 +57,35 @@ class consultas extends DB
         $this->realizarConsulta($sql);
     }
 
+    public function eliminarEmpresa($id) {
+        $sql= "DELETE FROM empresa WHERE ID_Empresa=".$id;
+        $this->realizarConsulta($sql);
+    }
+    
+    public function eliminarAlumno($id) {
+        $sql= "DELETE FROM alumno WHERE ID_Alumno=".$id;
+        $this->realizarConsulta($sql);
+    }
+
     //mostrar_alumno.php
     public function mostraralumno()
     {
-        $sql = "SELECT * FROM alumno where Tutor='" . $_SESSION['Nombre'] . "'";
+        $sql = "SELECT * FROM alumno where Tutor='".$_SESSION['Nombre']."'";
+        $resultado = $this->realizarConsulta($sql);
+        if ($resultado != null) {
+            $tabla = [];
+            while ($fila = $resultado->fetch_assoc()) {
+                $tabla[] = $fila;
+            }
+            return $tabla;
+        } else {
+            return null;
+        }
+    }
+
+    public function mostrarAlumnoAdmin()
+    {
+        $sql = "SELECT * FROM alumno";
         $resultado = $this->realizarConsulta($sql);
         if ($resultado != null) {
             $tabla = [];
