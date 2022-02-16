@@ -46,20 +46,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--Link estilos boostrap-->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/local.css">
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-
-
-
-<!-- JPDF-->
-<!-- <script src="../cosas necesarias/jsPDF/dist/jspdf.es.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
 
 </head>
 
@@ -123,30 +112,30 @@ session_start();
 </table>
 </div>
 
-<div class="col-md-4">
-<button id="GenerarMysql" class="btn btn-dark">Crear PDF</button>
-<br>
-</div>
+<input type="button" id="GenerarMysql" class="btn btn-outline-danger" value="Generar PDF">
 
+<!-- JPDF-->
 
+<script src="../js/jspdf.min.js"></script>
+<script src="../js/jspdf.plugin.autotable.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.dataTables.min.js"></script>
 
 <script>
     jQuery(document).ready(function () {
         $('#tabla').DataTable({
             "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
+            "url": "../js/es_es.json"
             }
         });
     });
 
     $("#GenerarMysql").click(function(){
   var pdf = new jsPDF();
-  pdf.text(20,20,"Mostrando una Tabla con PHP y MySQL");
+  pdf.text(20,20,"Diario de Actividades de <?php echo $_SESSION["Nombre"]; ?>");
 
-  var columns = ["Id_actividad", "Alumno","Tutor","Fecha,","Tipo_Práctica","Total_Horas","Actividad_realizada","Observaciones"];
+  var columns = ["Id Actividad", "Alumno","Tutor","Fecha","Tipo Práctica","Total Horas","Actividad realizada","Observaciones"];
   var data = [
 <?php foreach($resultado as $actividad){?>
 [<?php echo $actividad["ID_Actividad"]; ?>,
@@ -169,7 +158,7 @@ pdf.autoTable(columns,data,
   
     });
 
-  pdf.save('MiTabla.pdf');
+  pdf.save('Diario-<?php echo $_SESSION["Nombre"]; ?>.pdf');
 
 
 });
