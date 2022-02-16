@@ -45,23 +45,19 @@ session_start();
                         <a href="formularioProfesor.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
                                 value="Añadir profesor"></a> <br>
                 
-                
                         <a href="añadir_empresa.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
                                 value="añadir empresas"></a> <br>
-                        
-                        <a href="formularioActividad.php"><input type="button" class="btn btn-primary btn-lg  boton-form"
-                                value="Añadir nueva actividad"></a><br>
                 
-                        <a href="../php/mostrar_alumno.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
+                        <a href="mostrar_alumno.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
                                 value="Mostrar alumnos"></a> <br>
                                 
-                        <a href="../php/mostrar_profesor.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
+                        <a href="mostrar_profesor.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
                                 value="Mostrar profesor"></a> <br>
                 
-                        <a href="../php/mostrar_empresa.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
+                        <a href="mostrar_empresa.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
                                 value="Mostrar empresas"></a> <br>
                 
-                        <a href="../php/mostrar_actividad.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
+                        <a href="mostrar_actividad.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
                                 value="Mostrar actividad de alumnos"></a>
                 
                     </div>';
@@ -77,17 +73,16 @@ session_start();
                         <a href="añadir_empresa.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
                                 value="añadir empresas"></a> <br>
                 
-                
-                        <a href="../php/mostrar_alumno.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
+                        <a href="mostrar_alumno.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
                                 value="Mostrar alumnos"></a> <br>
                                 
-                        <a href="../php/mostrar_profesor.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
+                        <a href="mostrar_profesor.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
                                 value="Mostrar profesor"></a> <br>
                 
-                        <a href="../php/mostrar_empresa.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
+                        <a href="mostrar_empresa.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
                                 value="Mostrar empresas"></a> <br>
                 
-                        <a href="../php/mostrar_actividad.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
+                        <a href="mostrar_actividad.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
                                 value="Mostrar actividad de alumnos"></a>
                 
                     </div>';
@@ -100,7 +95,7 @@ session_start();
                         value="Añadir nueva actividad"></a><br>
 
                 
-                        <a href="../php/mostrar_actividad.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
+                        <a href="mostrar_actividad.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
                                 value="Mostrar actividad de alumnos"></a>
                 
                     </div>';

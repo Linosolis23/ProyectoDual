@@ -11,7 +11,7 @@ session_start();
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/local.css">
     <title>Añadir Alumnos</title>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     function checkDni() {
 
         while (!(/^\d{8}[a-zA-Z]$/.test(dni))) {
@@ -34,7 +34,7 @@ session_start();
 
         }
     }
-    </script>
+    </script> -->
 
 </head>
 
@@ -69,8 +69,10 @@ session_start();
         </div>
         <div class="form-group" name="formdni">
             <label>DNI</label>
+            <!-- <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario"
+                minlength="9" maxlength="9" required onchange="checkDni()"> -->
             <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario"
-                minlength="9" maxlength="9" required onchange="checkDni()">
+                minlength="9" maxlength="9" required">
 
         </div>
 

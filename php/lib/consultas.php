@@ -1,6 +1,6 @@
 <?php
 include 'DB.php';
-/*include 'login.php';*/
+
 class consultas extends DB
 {
     public function __construct()
@@ -141,7 +141,7 @@ class consultas extends DB
 
     public function mostrarActividadProfe($idProfe)
     {
-        $sql = "SELECT a.ID_Actividad, a.Fecha, a.Tipo_práctica, a.Total_Horas, a.Actividad_realizada, a.Observaciones, al.Nombre as nAlumno, al.Apellido1 as alApe1, al.Apellido2 as alApe2, p.Nombre as nProfe, p.Apellido1 as pApe1, p.Apellido2 as pApe2 from actividades as a join alumno_actividad as aa on a.ID_Actividad=aa.ID_actividad join alumno as al on aa.ID_Alumno=al.ID_Alumno join alumno_profesor as ap on al.ID_Alumno=ap.ID_Alumno join profesor as p on ap.ID_profesor=p.ID_Profesor where p.ID_Profesor=" . $idProfe;
+        $sql = "SELECT a.ID_Actividad, a.Fecha, a.Tipo_práctica, a.Total_Horas, a.Actividad_realizada, a.Observaciones, al.Nombre as nAlumno, al.Apellido1 as alApe1, al.Apellido2 as alApe2, p.Nombre as nProfe, p.Apellido1 as pApe1, p.Apellido2 as pApe2 from actividades as a join alumno_actividad as aa on a.ID_Actividad=aa.ID_actividad join alumno as al on aa.ID_Alumno=al.ID_Alumno join alumno_profesor as ap on al.ID_Alumno=ap.ID_Alumno join profesor as p on ap.ID_profesor=p.ID_Profesor where p.ID_Profesor=".$idProfe;
         $resultado = $this->realizarConsulta($sql);
         if ($resultado != null) {
             $tabla = [];
@@ -158,7 +158,7 @@ class consultas extends DB
 
     public function mostrarActividadAlu2($idAlu)
     {
-        $sql = "SELECT a.ID_Actividad, a.Fecha, a.Tipo_práctica, a.Total_Horas, a.Actividad_realizada, a.Observaciones, al.Nombre as nAlumno, al.Apellido1 as alApe1, al.Apellido2 as alApe2, p.Nombre as nProfe, p.Apellido1 as pApe1, p.Apellido2 as pApe2 from actividades as a join alumno_actividad as aa on a.ID_Actividad=aa.ID_actividad join alumno as al on aa.ID_Alumno=al.ID_Alumno join alumno_profesor as ap on al.ID_Alumno=ap.ID_Alumno join profesor as p on ap.ID_profesor=p.ID_Profesor where al.ID_Alumno=" . $idAlu;
+        $sql = "SELECT a.ID_Actividad, a.Fecha, a.Tipo_práctica, a.Total_Horas, a.Actividad_realizada, a.Observaciones, al.Nombre as nAlumno, al.Apellido1 as alApe1, al.Apellido2 as alApe2, p.Nombre as nProfe, p.Apellido1 as pApe1, p.Apellido2 as pApe2 from actividades as a join alumno_actividad as aa on a.ID_Actividad=aa.ID_actividad join alumno as al on aa.ID_Alumno=al.ID_Alumno join alumno_profesor as ap on al.ID_Alumno=ap.ID_Alumno join profesor as p on ap.ID_profesor=p.ID_Profesor where al.ID_Alumno=".$idAlu;
         $resultado = $this->realizarConsulta($sql);
         if ($resultado != null) {
             $tabla = [];
@@ -171,35 +171,6 @@ class consultas extends DB
         }
     }
 
-    // login.php para profesores
-    // public function loginProfesor($email){
-    // 	$sql="SELECT * FROM profesor where Email='".$email."'";
-    // 	$resultado =$this->realizarConsulta($sql);
-    // 	if ($resultado!=null){
-    // 		$tabla=[];
-    // 		while($fila=$resultado->fetch_assoc()){
-    // 			$tabla[]=$fila;
-    // 		}
-    // 			return $tabla;
-    // 		}else{
-    // 			return null;
-    // 	}
-    // }
-
-    // // login.php para alumnos
-    // public function loginAlumno($email){
-    // 	$sql="SELECT * FROM alumno where Email='".$email."'";
-    // 	$resultado =$this->realizarConsulta($sql);
-    // 	if ($resultado!=null){
-    // 		$tabla=[];
-    // 		while($fila=$resultado->fetch_assoc()){
-    // 			$tabla[]=$fila;
-    // 		}
-    // 			return $tabla;
-    // 		}else{
-    // 			return null;
-    // 	}
-    // }
     public function login($email)
     {
         $sql = "SELECT Email,rol,Contraseña,ID_Alumno as ID,Nombre FROM alumno WHERE email='" . $email . "' UNION ALL SELECT Email,rol,Contraseña,ID_Profesor as ID,Nombre FROM profesor WHERE email='" . $email . "'";
@@ -214,26 +185,24 @@ class consultas extends DB
             return null;
         }
     }
-    public function eliminarAlumno()
-    {
-        $sql = "DELETE * from alumno where ID_Alumno='" . $_POST['Id_eliminarAl'] . "'";
-    }
-
-    function EliminarProfesor()
-    {
-        $sql = "DELETE * from profesor where ID_Profesor='" . $_SESSION["Id_EliminarPro"] . "'";
-    }
-    public function alumnosActividad()
-	{
-		$sql = "INSERT INTO alumno_actividad(ID_Actividad,ID_Alumno)
- 		VALUES ((SELECT ID_Alumno FROM Alumno),
-		 (SELECT ID_Actividad FROM actividades))";
-		$resultado = $this->realizarConsulta($sql);
-		return $resultado;
-	}
+    
+    
 	public function ultimaActividad() {
-		$sql= "SELECT ID_Actividad FROM actividades ORDER by DESC LIMIT 1";
+		$sql= "SELECT ID_Actividad FROM actividades ORDER by ID_Actividad DESC LIMIT 1";
 		$resultado = $this->realizarConsulta($sql);
-		return $resultado;
+		if ($resultado != null) {
+            $tabla = [];
+            while ($fila = $resultado->fetch_assoc()) {
+                $tabla[] = $fila;
+            }
+            return $tabla;
+        } else {
+            return null;
+        }
 	}
+
+    public function nuevaActividadAlumno($id_act, $id_alu) {
+        $sql="INSERT INTO alumno_actividad VALUES ($id_act, $id_alu)";
+        $this->realizarConsulta($sql);
+    }
 }

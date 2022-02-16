@@ -53,10 +53,7 @@ session_start();
             <label for="obs">Observaciones</label>
             <textarea class="form-control form-control-lg posicionFormulario" rows="5" name="obs" id="obs"></textarea>
         </div>
-        <div>
-            <input type="hidden" value="<?php echo $_SESSION['Nombre'] ?>">
-        </div>
-        <br>
+        
         <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
         <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
     </form>
