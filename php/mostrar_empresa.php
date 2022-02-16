@@ -1,49 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar Empresa</title>
+    <!--Meta Tags Requeridos-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-</head>
+    <!--Link estilos boostrap-->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/local.css">
+    <body>
+           
+<div class="encabezado">
+       <img class="logo" alt="logo" src="../img/CESUR-web.png">
+    </div>
 
-<body>
-    <table border="1px">
-        <tr>
-            <td>ID</td>
-            <td>Nombre</td>
-            <td>Telefono</td>
-            <td>Email</td>
-            <td>Responsable</td>
-            <td>Observaciones</td>
-        </tr>
+    <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
 
-        <?php 
-        
-        $servername = "localhost";
-        $database = "proyectodual";
-        $username = "root";
-        $password = "";
-        $port=3307;
-        
-        
-        $conn = mysqli_connect($servername, $username, $password, $database,$port);
-        
-       $query="SELECT * from empresa";
-    $resul=mysqli_query($conn,$query);
-    while ($row= mysqli_fetch_array($resul)) {
-        ?>
-        <tr>
-            <td><?php echo $row['ID_Empresa'] ?></td>
-            <td><?php echo $row['Nombre_Empresa'] ?></td>
-            <td><?php echo $row['Telefono'] ?></td>
-            <td><?php echo $row['Email'] ?></td>
-            <td><?php echo $row['Responsable'] ?></td>
-            <td><?php echo $row['Observaciones'] ?></td>
-        </tr>
-        <?php
-    }
-            ?>
+    </body>
+<?php
+
+session_start();
+
+    require 'lib/consultas.php';
+
+echo "<table class='table' border=1 align='center'> <tr><th> ID_Empresa </th> <th> Nombre de la empresa </th><th> Telefono </th><th> Email </th><th> Responsable </th><th> Observaciones </th></tr>";
+
+$BaseDatos=new consultas();
+$resultado=$BaseDatos->mostrarempresa();
+
+foreach($resultado as $empresa){
+    echo "<tr><td>" . $empresa["ID_Empresa"] ."</td> <td>". $empresa["Nombre_Empresa"]."</td> <td>". $empresa["Telefono"]."</td><td>". $empresa["Email"]."</td><td>". $empresa["Responsable"]."</td><td>".$empresa["Observaciones"]."</td>";
+    echo "</tr>";   
+}
+?>

@@ -1,8 +1,13 @@
 /* Fuente personalizada */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@font-face {
+    font-family: Poppins;
+    src: url(Poppins.ttf);
+}
 
 body {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: #2c3338;
 }
 
 /*Centra el logo del menu*/
@@ -29,4 +34,116 @@ body {
     min-width: 25em;
     
 }
-  
+/*Para que se vean los campos de la tabla con el fondo*/
+th, td{
+    color: white;
+}
+/*Menu superior*/
+.encabezado {
+    background-color: #2c3338;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+.logo{
+    width: 200px;
+}
+   
+/*Menu responsive*/
+
+.container-menu{ 
+
+    display: block; 
+
+    text-align: center; 
+
+    justify-content: center 
+
+} 
+
+.boton-form{ 
+
+    width: 90%;
+    margin-bottom: 1%;
+
+} 
+
+/*Media query para todas las pantallas menores de 600px*/ 
+@media all and (max-width: 600px){ 
+
+    .container-menu{ 
+
+        display: block; 
+
+        text-align: center; 
+
+        justify-content: center 
+    } 
+
+    .container-boton{ 
+
+        display: inline-block; 
+    } 
+
+    .boton-form{ 
+
+        width: 80%; 
+        margin-bottom: 3%;
+    }
+
+}
+/*Media query para todas las pantallas menores de 400px*/ 
+@media all and (max-width: 400px){ 
+
+    .container-menu{ 
+
+        display: block; 
+
+        text-align: center; 
+
+        justify-content: center 
+
+    } 
+
+    .container-boton{ 
+
+        display: inline-block; 
+
+    } 
+
+    .boton-form{ 
+
+        width: 80%; 
+        margin-bottom: 3%;
+        font-size: 90%;
+
+    }
+    .logocesur{
+        width: 70%;
+        height: 70%;
+    }
+
+}
+
+
+/* Reglas de estilo para los datatables */
+
+.tablon label,
+.tablon select,
+.tablon #tabla_info,
+.tablon input[type=search] {
+    color: white;
+
+}
+
+.tablon td {
+    background-color: #2c3338;
+}
+
+.tablon .sorting_1,
+.tablon thead,
+.tablon tfoot {
+    background-color: black !important;
+}
+
+/* Fin Reglas de estilo para los datatables */
