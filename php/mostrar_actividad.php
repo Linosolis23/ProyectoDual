@@ -124,15 +124,9 @@ session_start();
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/jquery.dataTables.min.js"></script>
+<script src="../js/tablasJquery.js"></script>
 
 <script>
-    jQuery(document).ready(function () {
-        $('#tabla').DataTable({
-            "language": {
-            "url": "../js/es_es.json"
-            }
-        });
-    });
 
     $("#GenerarMysql").click(function(){
   var pdf = new jsPDF();

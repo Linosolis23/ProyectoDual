@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+require 'lib/consultas.php';
+
+$BaseDatos = new consultas();
+
+$empresa = $BaseDatos->mostrarempresa_select();
+
+$resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -43,8 +51,11 @@ session_start();
         <img class="logo" alt="logo" src="../img/CESUR-web.png">
     </div>
 
-    <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
+    <h1 class="text-center">A&ntilde;adir nuevo alumno</h1>
 
+    <div class="text-center">
+        <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
+    </div>
 
     <form method="post" action="nuevoAlumno.php" class="was-validated">
 
@@ -69,10 +80,8 @@ session_start();
         </div>
         <div class="form-group" name="formdni">
             <label>DNI</label>
-            <!-- <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario"
-                minlength="9" maxlength="9" required onchange="checkDni()"> -->
-            <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario"
-                minlength="9" maxlength="9" required">
+            <!-- <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" required onchange="checkDni()"> -->
+            <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" required">
 
         </div>
 
@@ -94,23 +103,15 @@ session_start();
         <div class="form-group">
             <label>Empresa</label>
 
-            <select type="text" class="form-control form-control-lg posicionFormulario" name="emp" required>
-                <?php
+            <select class="form-control form-control-lg posicionFormulario" name="emp" required>
 
-                require 'lib/consultas.php';
+            <option value="" disabled selected>&darr; Selecciona una empresa &darr;</option>
 
-                $selectEmpresa = new consultas();
-                $resultado = $selectEmpresa->mostrarempresa_select();
+                <?php foreach ($empresa as $opciones) { ?>
 
-                ?>
-                <option selected="selected" value="">
-                </option>
-                <?php foreach ($resultado as $opciones) : ?>
+                <option value="<?php echo $opciones['Nombre_Empresa'] ?>"><?php echo $opciones['Nombre_Empresa'] ?></option>
 
-                <option value="<?php echo $opciones['Nombre_Empresa'] ?>"><?php echo $opciones['Nombre_Empresa'] ?>
-                </option>
-
-                <?php endforeach ?>
+                <?php } ?>
 
             </select>
         </div>
@@ -118,19 +119,12 @@ session_start();
 
         <div class="form-group">
             <label>Profesor</label>
-            <select type="select" class="form-control form-control-lg posicionFormulario" name="tut">
-                <?php
-                $selectProfesor = new consultas();
-                $resultado = $selectProfesor->mostrarprofesor_select($_SESSION['Nombre']);
+            <select class="form-control form-control-lg posicionFormulario" name="tut">
                 
-                ?>
-                <?php foreach ($resultado as $opciones) : ?>
+                <?php foreach ($resultado as $opciones) { ?>
                 <option value="<?php echo $opciones['Nombre'] ?>"><?php echo $opciones['Nombre'] ?></option>
-
-
-                <?php endforeach ?>
-                <option selected="selected" value="<?php echo $_SESSION['Nombre'] ?>"><?php echo "$_SESSION[Nombre]" ?>
-                </option>
+                <?php } ?>
+                <option value="<?php echo $_SESSION['Nombre'] ?>" selected><?php echo $_SESSION['Nombre'] ?></option>
 
             </select>
 
@@ -141,7 +135,7 @@ session_start();
 
         </div>
         <div class="form-group">
-            <label>Nª horas FCT</label>
+            <label>Nº horas FCT</label>
             <input type="number" class="form-control form-control-lg posicionFormulario" name="hfct" required>
 
         </div>
@@ -150,8 +144,10 @@ session_start();
             <textarea name="obs" class="form-control form-control-lg posicionFormulario" rows="5" cols="20"></textarea>
         </div>
 
-        <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
-        <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
+        <div class="m-3 text-center">
+            <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
+            <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
+        </div>
 
     </form>
 

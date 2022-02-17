@@ -18,7 +18,6 @@ session_start();
 
 <body>
 
-
     <!--PNG logo Cesur-->
     <div class="container-menu">
     <div class="container-boton">
@@ -30,7 +29,7 @@ session_start();
                     <a href="cerrarsesion.php"><input type="button" class="btn btn-info" value="Cerrar Sesi&oacute;n"></a>
             </p>
     </div>
-    <div> <img class="logocesur" src="../img/CESUR-web.png" alt="Cesur Logo"></div>
+    <img class="logocesur" src="../img/CESUR-web.png" alt="Cesur Logo">
     </div>
     <?php
 
@@ -46,7 +45,7 @@ session_start();
                                 value="Añadir profesor"></a> <br>
                 
                         <a href="añadir_empresa.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
-                                value="añadir empresas"></a> <br>
+                                value="Añadir empresas"></a> <br>
                 
                         <a href="mostrar_alumno.php"> <input type="button" class="btn btn-primary btn-lg  boton-form"
                                 value="Mostrar alumnos"></a> <br>
@@ -71,7 +70,7 @@ session_start();
                                 value="Añadir alumno"></a> <br>
                 
                         <a href="añadir_empresa.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
-                                value="añadir empresas"></a> <br>
+                                value="Añadir empresas"></a> <br>
                 
                         <a href="mostrar_alumno.php"> <input type="button" class="btn btn-primary btn-lg boton-form"
                                 value="Mostrar alumnos"></a> <br>
@@ -102,7 +101,6 @@ session_start();
                         break;
                 
                 default:
-                        echo "erró";
                         header('location: ../index.html');
                         break;
         }

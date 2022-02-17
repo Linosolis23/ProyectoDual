@@ -15,16 +15,16 @@ session_start();
 </head>
 
 <body>
-    <!--INICIO MENU-->
+
     <div class="encabezado">
         <img class="logo" alt="logo" src="../img/CESUR-web.png">
     </div>
 
-    <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
+    <h1 class="text-center">A&ntilde;adir nueva empresa</h1>
 
-    <!--FIN MENU-->
-
-    <!--Formulario añadir empresa-->
+    <div class="text-center">
+        <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
+    </div>
 
     <form method="POST" action="nuevaEmpresa.php" class="was-validated">
         <div>
@@ -47,8 +47,10 @@ session_start();
             <label>Observaciones</label><br>
             <textarea class="form-control form-control-lg posicionFormulario" name="obs" rows="5" cols="20"></textarea>
         </div>
-        <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
-        <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
+        <div class="m-3 text-center">
+            <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
+            <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
+        </div>
     </form>
 </body>
 </html>

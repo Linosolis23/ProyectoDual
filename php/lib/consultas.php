@@ -61,9 +61,43 @@ class consultas extends DB
         $sql= "DELETE FROM empresa WHERE ID_Empresa=".$id;
         $this->realizarConsulta($sql);
     }
+
+    public function eliminarProfesor($id) {
+        $sql= "DELETE FROM profesor WHERE ID_Profesor=".$id;
+        $this->realizarConsulta($sql);
+    }
+
+    public function profesorAleatorio() {
+        $sql = "SELECT ID_Profesor FROM profesor ORDER BY RAND() LIMIT 1";
+        $resultado = $this->realizarConsulta($sql);
+        if ($resultado != null) {
+            $tabla = [];
+            while ($fila = $resultado->fetch_assoc()) {
+                $tabla[] = $fila;
+            }
+            return $tabla;
+        } else {
+            return null;
+        }
+    }
+
+    public function asignarNuevoProfesor($idAntiguo, $idNuevo) {
+        $sql= "UPDATE alumno_profesor SET ID_Profesor=".$idNuevo." WHERE ID_Profesor=".$idAntiguo;
+        $this->realizarConsulta($sql);
+    }
     
     public function eliminarAlumno($id) {
         $sql= "DELETE FROM alumno WHERE ID_Alumno=".$id;
+        $this->realizarConsulta($sql);
+    }
+
+    public function eliminarAlumnoActividad($id) {
+        $sql= "DELETE FROM alumno_actividad WHERE ID_Alumno=".$id;
+        $this->realizarConsulta($sql);
+    }
+
+    public function eliminarAlumnoProfesor($id) {
+        $sql= "DELETE FROM alumno_profesor WHERE ID_Alumno=".$id;
         $this->realizarConsulta($sql);
     }
 
@@ -141,9 +175,17 @@ class consultas extends DB
     //select de empresa en añadirAlumno.php
     public function mostrarempresa_select()
     {
-        $sql = "SELECT * FROM empresa";
+        $sql = "SELECT Nombre_Empresa FROM empresa";
         $resultado = $this->realizarConsulta($sql);
-        return $resultado;
+        if ($resultado != null) {
+            $tabla = [];
+            while ($fila = $resultado->fetch_assoc()) {
+                $tabla[] = $fila;
+            }
+            return $tabla;
+        } else {
+            return null;
+        }
     }
     //mostrar actividad.php como admin
 

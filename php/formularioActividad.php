@@ -54,8 +54,10 @@ session_start();
             <textarea class="form-control form-control-lg posicionFormulario" rows="5" name="obs" id="obs"></textarea>
         </div>
         
-        <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
-        <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
+        <div class="m-3 text-center">
+            <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
+            <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
+        </div>
     </form>
 </body>
 

@@ -14,15 +14,16 @@ session_start();
 </head>
 
 <body>
-    <!--INICIO MENU-->
+
     <div class="encabezado">
         <img class="logo" alt="logo" src="../img/CESUR-web.png">
     </div>
 
-    <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
-
-    <!--FIN MENU-->
     <h1 class="text-center">A&ntilde;adir nuevo profesor</h1>
+
+    <div class="text-center">
+        <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
+    </div>
     <form action="nuevoProfesor.php" method="post" class="was-validated">
         <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -49,9 +50,10 @@ session_start();
             <input type="email" class="form-control form-control-lg posicionFormulario" name="correo" required>
             
         </div>
-        <br>
-        <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
-        <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
+        <div class="m-3 text-center">
+            <input type="submit" class="btn btn-primary btn-lg" value="Insertar">
+            <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
+        </div>
     </form>
 </body>
 

@@ -38,14 +38,28 @@
                 <th> Primer Apellido </th>
                 <th> Segundo Apellido </th>
                 <th> Email </th>
+                <th> </th>
+                <th> </th>
             </tr>
         </thead>
         <tbody>
 
 <?php
     foreach($resultado as $profesor){
-    echo "<tr><td>" . $profesor["ID_Profesor"] ."</td> <td>". $profesor["Nombre"]."</td> <td>". $profesor["Apellido1"]."</td><td>". $profesor["Apellido2"]."</td><td>". $profesor["Email"]."</td>";
-        echo "</tr>";   
+    echo "<tr>";
+        echo "<td>".$profesor["ID_Profesor"]."</td>";
+        echo "<td>".$profesor["Nombre"]."</td>";
+        echo "<td>".$profesor["Apellido1"]."</td>";
+        echo "<td>".$profesor["Apellido2"]."</td>";
+        echo "<td>".$profesor["Email"]."</td>";
+        if ($_SESSION["Rol"] == 0) {
+            echo "<td><a href='modProfesor.php?id=".$profesor["ID_Profesor"]."'><input type='button' class='btn btn-info' value='Modificar'></a></td>";
+            echo "<td><a href='deleteProfesor.php?id=".$profesor["ID_Profesor"]."'><input type='button' class='btn btn-danger' value='Eliminar'></a></td>";
+        }
+        else {
+            echo "<td></td><td></td>";
+        }
+    echo "</tr>";   
     }
 ?>
         </tbody>
@@ -56,6 +70,8 @@
                 <th> Primer Apellido </th>
                 <th> Segundo Apellido </th>
                 <th> Email </th>
+                <th> </th>
+                <th> </th>
             </tr>
         </tfoot>
 </table>
