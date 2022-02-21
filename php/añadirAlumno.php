@@ -33,7 +33,7 @@ $resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
         <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
     </div>
 
-    <form method="post" action="nuevoAlumno.php" class="was-validated">
+    <form method="post" action="nuevoAlumno.php" class="was-validated" >
 
         <div class="form-group">
             <label>Nombre</label>
@@ -56,8 +56,7 @@ $resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
         </div>
         <div class="form-group" name="formdni">
             <label>DNI</label>
-            <!-- <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" required onchange="checkDni()"> -->
-            <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" required>
+            <input type="text" id="dni" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" onchange="nif()" required>
 
         </div>
 
@@ -127,5 +126,33 @@ $resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
     </form>
 
 </body>
+
+<script>
+    function nif() {
+    const dni = document.getElementById("dni").value;
+  var numero;
+  var letr;
+  var letra;
+  var expresion_regular_dni;
+  expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+    console.log(dni);
+  if(expresion_regular_dni.test (dni) == true){
+     numero = dni.substr(0,dni.length-1);
+     letr = dni.substr(dni.length-1,1);
+     numero = numero % 23;
+     letra='TRWAGMYFPDXBNJZSQVHLCKET';
+     letra=letra.substring(numero,numero+1);
+    if (letra!=letr.toUpperCase()) {
+       alert('Dni erroneo, la letra del NIF no se corresponde');
+       document.getElementById("dni").value="";
+
+     }
+    }else{
+     alert('Dni erroneo, formato no válido');
+     document.getElementById("dni").value="";
+
+   }
+}
+</script>
 
 </html>
