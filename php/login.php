@@ -24,7 +24,7 @@
 
 
     <?php
-
+error_reporting(0);
 $encontrado = false;
     
     $resultado=$BaseDatos->login($_POST["email"]);
@@ -94,14 +94,12 @@ $encontrado = false;
                 }
 
             }
-            else {
-                echo "<h1>Este usuario no existe</h1>";
-            }
-
-            break;
+            
         
         default:
-            echo "error";
+        
+            echo "<h1>Este usuario no existe</h1>";
+
             break;
     }
 

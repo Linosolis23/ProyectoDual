@@ -19,30 +19,6 @@ $resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/local.css">
     <title>Añadir Alumnos</title>
-    <!-- <script type="text/javascript">
-    function checkDni() {
-
-        while (!(/^\d{8}[a-zA-Z]$/.test(dni))) {
-            var dni = document.getElementById('validarDNI').value;
-        }
-        //Letra y numeros por separado
-        var letra = dni.substring(8, 9).toUpperCase();
-        var numero = parseInt(dni.substring(0, 8));
-
-        //Se calcula la letra segun el numero introducido
-        var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H',
-            'L', 'C', 'K', 'E', 'T'
-        ];
-        var letraCorrecta = letras[numero % 23];
-
-        if (letra != letraCorrecta) {
-            alert("Has introducido la letra equivocada,deberia ser esta: " + letraCorrecta);
-        } else {
-            alert("Enhorabuena hemos podido validar tu DNI");
-
-        }
-    }
-    </script> -->
 
 </head>
 
@@ -81,7 +57,7 @@ $resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
         <div class="form-group" name="formdni">
             <label>DNI</label>
             <!-- <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" required onchange="checkDni()"> -->
-            <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" required">
+            <input type="text" id="validarDNI" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" required>
 
         </div>
 
@@ -97,8 +73,7 @@ $resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
         </div>
         <div class="form-group">
             <label>Teléfono</label>
-            <input type="number" class="form-control form-control-lg posicionFormulario" name="tel" required>
-
+            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control form-control-lg posicionFormulario" name="tel" minlength="9" maxlength="9" required></input>
         </div>
         <div class="form-group">
             <label>Empresa</label>
