@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if (!$_SESSION["Email"]){
+    header('location: ../index.html');
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

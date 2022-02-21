@@ -1,7 +1,9 @@
 <?php
 
     session_start();
-
+    if (!$_SESSION["Email"]){
+        header('location: ../index.html');
+    }
     require 'lib/consultas.php';
 
     $BaseDatos=new consultas();
