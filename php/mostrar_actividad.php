@@ -72,13 +72,13 @@ if (!$_SESSION["Email"]){
     <table id="tabla" class="display table">
         <thead>
             <tr>
-                <th> ID_Actividad </th>
+                <th> ID Actividad </th>
                 <th> Alumno </th>
                 <th> Tutor </th>
                 <th> Fecha </th>
-                <th> Tipo_práctica </th>
-                <th> Total_Horas </th>
-                <th> Actividad_realizada </th>
+                <th> Tipo práctica </th>
+                <th> Total Horas </th>
+                <th> Actividad realizada </th>
                 <th> Observaciones </th>
             </tr>
         </thead>
@@ -102,13 +102,13 @@ if (!$_SESSION["Email"]){
         </tbody>
         <tfoot>
             <tr>
-                <th> ID_Actividad </th>
+                <th> ID Actividad </th>
                 <th> Alumno </th>
                 <th> Tutor </th>
                 <th> Fecha </th>
-                <th> Tipo_práctica </th>
-                <th> Total_Horas </th>
-                <th> Actividad_realizada </th>
+                <th> Tipo práctica </th>
+                <th> Total Horas </th>
+                <th> Actividad realizada </th>
                 <th> Observaciones </th>
             </tr>
         </tfoot>

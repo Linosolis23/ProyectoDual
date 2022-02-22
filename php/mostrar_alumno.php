@@ -43,18 +43,18 @@ else {
     <table id="tabla" class='display table'>
         <thead>
             <tr>
-                <th> ID_Alumno </th>
+                <th> ID Alumno </th>
                 <th> Nombre </th>
                 <th> Primer Apellido </th>
                 <th> Segundo Apellido </th>
                 <th> DNI </th>
-                <th> Fecha_Nacimiento </th>
+                <th> Fecha Nacimiento </th>
                 <th> Email </th>
                 <th> Telefono </th>
                 <th> Empresa </th>
                 <th> Tutor </th>
-                <th> NºHoras_Dual </th>
-                <th> NºHoras_FCT </th>
+                <th> NºHoras Dual </th>
+                <th> NºHoras FCT </th>
                 <th> Observaciones </th>
                 <th> </th>
                 <th> </th>
@@ -85,18 +85,18 @@ foreach($resultado as $alumno){
         </tbody>
         <tfoot>
             <tr>
-                <th> ID_Alumno </th>
+                <th> ID Alumno </th>
                 <th> Nombre </th>
                 <th> Primer Apellido </th>
                 <th> Segundo Apellido </th>
                 <th> DNI </th>
-                <th> Fecha_Nacimiento </th>
+                <th> Fecha Nacimiento </th>
                 <th> Email </th>
                 <th> Telefono </th>
                 <th> Empresa </th>
                 <th> Tutor </th>
-                <th> NºHoras_Dual </th>
-                <th> NºHoras_FCT </th>
+                <th> NºHoras Dual </th>
+                <th> NºHoras FCT </th>
                 <th> Observaciones </th>
                 <th> </th>
                 <th> </th>

@@ -38,7 +38,7 @@
     <table id="tabla" class='display table'>
     <thead>
         <tr>
-            <th> ID_Empresa </th>
+            <th> ID Empresa </th>
             <th> Nombre de la empresa </th>
             <th> Telefono </th>
             <th> Email </th>
@@ -67,7 +67,7 @@ foreach($resultado as $empresa){
 </tbody>
 <tfoot>
     <tr>
-        <th> ID_Empresa </th>
+        <th> ID Empresa </th>
         <th> Nombre de la empresa </th>
         <th> Telefono </th>
         <th> Email </th>

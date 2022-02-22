@@ -35,7 +35,7 @@
     <table id="tabla" class='display table'>
         <thead>
             <tr>
-                <th> ID_profesor </th>
+                <th> ID profesor </th>
                 <th> Nombre </th>
                 <th> Primer Apellido </th>
                 <th> Segundo Apellido </th>
@@ -67,7 +67,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <th> ID_profesor </th>
+                <th> ID profesor </th>
                 <th> Nombre </th>
                 <th> Primer Apellido </th>
                 <th> Segundo Apellido </th>

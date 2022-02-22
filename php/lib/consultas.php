@@ -272,4 +272,63 @@ class consultas extends DB
         $sql="INSERT INTO alumno_actividad VALUES ($id_act, $id_alu)";
         $this->realizarConsulta($sql);
     }
+
+    public function profesorAeditar($id) {
+		$sql= "SELECT Nombre, Apellido1, Apellido2, Email FROM profesor WHERE ID_Profesor=".$id;
+		$resultado = $this->realizarConsulta($sql);
+		if ($resultado != null) {
+            $tabla = [];
+            while ($fila = $resultado->fetch_assoc()) {
+                $tabla[] = $fila;
+            }
+            return $tabla;
+        } else {
+            return null;
+        }
+	}
+
+    public function modificarProfesor($id, $nombre, $ape1, $ape2, $email) {
+        $sql= "UPDATE profesor SET Nombre='".$nombre."', Apellido1='".$ape1."', Apellido2='".$ape2."', Email='".$email."' WHERE ID_Profesor=".$id;
+        $this->realizarConsulta($sql);
+    }
+
+    public function alumnoAeditar($id) {
+		$sql= "SELECT * FROM alumno WHERE ID_Alumno=".$id;
+		$resultado = $this->realizarConsulta($sql);
+		if ($resultado != null) {
+            $tabla = [];
+            while ($fila = $resultado->fetch_assoc()) {
+                $tabla[] = $fila;
+            }
+            return $tabla;
+        } else {
+            return null;
+        }
+	}
+
+    public function modificarAlumno($id, $nombre, $ape1, $ape2, $con, $dni, $fecha, $email, $tel, $emp, $tut, $hdual, $hfct) {
+        $sql= "UPDATE alumno SET Nombre='".$nombre."', Apellido1='".$ape1."', Apellido2='".$ape2."', Contraseña='".$con."', DNI='".$dni."', Fecha_Nacimiento='".$fecha."', Email='".$email."', Telefono=".$tel.", Empresa='".$emp."', Tutor='".$tut."', NºHoras_Dual=".$hdual.", NºHoras_FCT=".$hfct." WHERE ID_Alumno=".$id;
+        $this->realizarConsulta($sql);
+    }
+
+    public function empresaAeditar($id) {
+		$sql= "SELECT * FROM empresa WHERE ID_Empresa=".$id;
+		$resultado = $this->realizarConsulta($sql);
+		if ($resultado != null) {
+            $tabla = [];
+            while ($fila = $resultado->fetch_assoc()) {
+                $tabla[] = $fila;
+            }
+            return $tabla;
+        } else {
+            return null;
+        }
+	}
+
+    public function modificarempresa($id, $nombre, $tel, $ema, $res) {
+        $sql= "UPDATE empresa SET Nombre_Empresa='".$nombre."', Telefono=".$tel.", Email='".$ema."', Responsable='".$res."' WHERE ID_Empresa=".$id;
+        echo $sql;
+        $this->realizarConsulta($sql);
+    }
+
 }
