@@ -35,7 +35,8 @@ if (!$_SESSION["Email"]){
         </div>
         <div>
             <label>Teléfono</label>
-            <input type="number" class="form-control form-control-lg posicionFormulario" name="tel"  required>
+            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control form-control-lg posicionFormulario" name="tel" minlength="9" maxlength="9" required>
+
         </div>
         <div>
             <label>Email</label>
