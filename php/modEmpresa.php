@@ -32,7 +32,7 @@
     <a href="index.php"><input type="button" class="btn btn-secondary btn-lg" value="HOME"></a>
 </div>
 
-<h1 class="text-center">Modificando datos de la Empresa</h1>
+<h1 class="text-center">Modificando datos de la Empresa &rarr; <?php echo $resultado[0]["Nombre_Empresa"] ?></h1>
     <form action="modEmpresaAuto.php" method="post" class="was-validated">
 
         <div class="form-group">
