@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="../css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/local.css">
+    <title>Modificar Alumno</title>
 </head>
 
 <body>
@@ -54,12 +55,8 @@
             <input type="text" class="form-control form-control-lg posicionFormulario" name="ape2" value="<?php echo $alumno[0]["Apellido2"] ?>" required>
 
         </div>
+        
         <div class="form-group">
-            <label>Contraseña</label>
-            <input type="password" class="form-control form-control-lg posicionFormulario" name="con" required>
-
-        </div>
-        <div class="form-group" name="formdni">
             <label>DNI</label>
             <input type="text" id="dni" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" onchange="nif()" value="<?php echo $alumno[0]["DNI"] ?>" required>
 

@@ -56,7 +56,7 @@ $resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
             <input type="password" class="form-control form-control-lg posicionFormulario" name="con" required>
 
         </div>
-        <div class="form-group" name="formdni">
+        <div class="form-group">
             <label>DNI</label>
             <input type="text" id="dni" name="dni" class="form-control form-control-lg posicionFormulario" minlength="9" maxlength="9" onchange="nif()" required>
 

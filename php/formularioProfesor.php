@@ -43,8 +43,13 @@ if (!$_SESSION["Email"]){
             
         </div>
         <div class="form-group">
-            <label for="contra">Contraseña</label>
+            <label for="contra">Contrase&ntilde;a</label>
             <input type="password" class="form-control form-control-lg posicionFormulario" name="contra" required>
+            
+        </div>
+        <div class="form-group">
+            <label for="contra2">Repite Contrase&ntilde;a</label>
+            <input type="password" class="form-control form-control-lg posicionFormulario" name="contra2" required>
             
         </div>
         <div class="form-group">

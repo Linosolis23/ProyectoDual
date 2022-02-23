@@ -6,9 +6,19 @@ session_start();
     include "lib/consultas.php";
       
     $BaseDatos=new Consultas();
-    
-    $BaseDatos->nuevoProfesor($_POST["nombre"], $_POST["ape1"], $_POST["ape2"], md5($_POST["contra"]), $_POST["correo"]);
+
+    $md5 = md5($_POST["contra"]);
+    $md5_repite = md5($_POST["contra2"]);
+
+    if ($md5 == $md5_repite) {
+        $BaseDatos->nuevoProfesor($_POST["nombre"], $_POST["ape1"], $_POST["ape2"], $md5, $_POST["correo"]);
         
-    header("Location:formularioProfesor.php");
-    
+        header("Location:formularioProfesor.php");
+    }
+    else {
+        echo "La contraseñas no coinciden";
+
+        echo '<br><a href="formularioProfesor.php"><input type="button" value="Volver"></a>';
+    }
+
 ?>

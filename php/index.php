@@ -13,6 +13,7 @@ session_start();
     <!--Link estilos boostrap-->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/local.css">
+    <title>Men&uacute; HOME</title>
 
 </head>
 
