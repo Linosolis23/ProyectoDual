@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!$_SESSION["Email"]){
+if (!$_SESSION["Email"] || !$_SESSION["Rol"] == "0"){
     header('location: ../index.html');
-}
+}else{
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -62,6 +62,10 @@ if (!$_SESSION["Email"]){
             <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
         </div>
     </form>
+
+    <?php
+    }
+    ?>
 </body>
 
 </html>

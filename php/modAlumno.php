@@ -1,9 +1,8 @@
 <?php
     session_start();
-    if (!$_SESSION["Email"]){
+    if (!$_SESSION["Email"] || $_SESSION["Rol"] == "2"){
         header('location: ../index.html');
-    }
-    require 'lib/consultas.php';
+    }else{
     $BaseDatos=new consultas();
 
     $empresa = $BaseDatos->mostrarempresa_select();
@@ -123,7 +122,9 @@
             <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
         </div>
     </form>
-
+    <?php
+    }
+    ?>
 <script>
     function nif() {
     const dni = document.getElementById("dni").value;

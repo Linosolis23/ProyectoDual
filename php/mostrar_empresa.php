@@ -1,9 +1,9 @@
 <?php
 
     session_start();
-    if (!$_SESSION["Email"]){
+    if (!$_SESSION["Email"] || $_SESSION["Rol"] == "2"){
         header('location: ../index.html');
-    }
+    }else{
     require 'lib/consultas.php';
 
     $BaseDatos=new consultas();
@@ -85,4 +85,7 @@ foreach($resultado as $empresa){
 <script src="../js/jquery.dataTables.min.js"></script>
 <script src="../js/tablasJquery.js"></script>
 </body>
+<?php
+}
+?>
 </html>

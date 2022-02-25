@@ -2,7 +2,9 @@
 
 session_start();
 
-    {
+if (!$_SESSION["Email"] || $_SESSION["Rol"] == "2"){
+    header('location: ../index.html');
+}else{
         include "lib/consultas.php";
         
         $BaseDatos=new Consultas();
@@ -17,4 +19,5 @@ session_start();
         
         header("Location:mostrar_empresa.php");
     }
+
 ?>

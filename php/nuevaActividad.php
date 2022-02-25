@@ -1,7 +1,9 @@
 <?php
 
 session_start();
-
+if (!$_SESSION["Email"]){
+    header('location: ../index.html');
+}else{
 
 include "lib/consultas.php";
 
@@ -20,3 +22,5 @@ $ultima = $BaseDatos->ultimaActividad();
 $BaseDatos->nuevaActividadAlumno($ultima[0]["ID_Actividad"], $_SESSION["ID"]);
 
 header("Location:mostrar_actividad.php");
+}
+?>

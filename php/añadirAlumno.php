@@ -1,8 +1,9 @@
 <?php
 session_start();
-if (!$_SESSION["Email"]){
+if (!$_SESSION["Email"] || $_SESSION["Rol"] == "2"){
     header('location: ../index.html');
-}
+}else{
+
 require 'lib/consultas.php';
 
 $BaseDatos = new consultas();
@@ -127,6 +128,9 @@ $resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
 
     </form>
 
+    <?php
+}
+?>
 </body>
 
 <script>

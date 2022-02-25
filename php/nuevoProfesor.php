@@ -1,7 +1,9 @@
 <?php
 
 session_start();
-
+if (!$_SESSION["Email"] || !$_SESSION["Rol"] == "0"){
+    header('location: ../index.html');
+}else{
 
     include "lib/consultas.php";
       
@@ -20,5 +22,5 @@ session_start();
 
         echo '<br><a href="formularioProfesor.php"><input type="button" value="Volver"></a>';
     }
-
+}
 ?>

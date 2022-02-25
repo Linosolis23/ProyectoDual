@@ -3,7 +3,7 @@ session_start();
 
 if (!$_SESSION["Email"] || $_SESSION["Rol"] == "2"){
     header('location: ../index.html');
-}
+}else{
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -56,5 +56,8 @@ if (!$_SESSION["Email"] || $_SESSION["Rol"] == "2"){
             <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
         </div>
     </form>
+    <?php
+}
+?>
 </body>
 </html>

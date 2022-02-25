@@ -2,7 +2,7 @@
 session_start();
 if (!$_SESSION["Email"]){
     header('location: ../index.html');
-}
+}else{
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -62,5 +62,7 @@ if (!$_SESSION["Email"]){
         </div>
     </form>
 </body>
-
+<?php
+}
+?>
 </html>
