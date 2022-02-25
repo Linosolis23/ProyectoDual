@@ -107,7 +107,7 @@ $encontrado = false;
     
 ?>
 
-    <a href="index.php"><input type="button" class="btn btn-danger btn-lg" value="Volver"></a>
+    <a href="../"><input type="button" class="btn btn-danger btn-lg" value="Volver"></a>
 
 </body>
 

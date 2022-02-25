@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION["Email"] || $_SESSION["Rol"] == "2"){
-    header('location: ../index.html');
+    header('location: index.php');
 }else{
 
 require 'lib/consultas.php';

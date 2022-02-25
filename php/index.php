@@ -102,7 +102,7 @@ session_start();
                         break;
                 
                 default:
-                        header('location: ../index.html');
+                        header('location: ../');
                         break;
         }
 
