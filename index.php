@@ -2,7 +2,7 @@
     session_start();
 
     if ($_SESSION["Email"]){
-        header('location: php/');
+        header('location: php/index.php');
     }
 ?>
 <!DOCTYPE html>
