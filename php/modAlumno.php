@@ -2,7 +2,12 @@
     session_start();
     if (!$_SESSION["Email"] || $_SESSION["Rol"] == "2"){
         header('location: index.php');
-    }else{
+    }
+
+    else{
+
+    require 'lib/consultas.php';
+
     $BaseDatos=new consultas();
 
     $empresa = $BaseDatos->mostrarempresa_select();
@@ -10,6 +15,8 @@
     $resultado = $BaseDatos->mostrarprofesor_select($_SESSION['Nombre']);
 
     $alumno=$BaseDatos->alumnoAeditar($_GET["id"]);
+
+    }
     
 ?>
 <!DOCTYPE html>
@@ -80,7 +87,7 @@
 
             <select class="form-control form-control-lg posicionFormulario" name="emp" required>
 
-            <option value="" disabled selected>&darr; Selecciona una empresa &darr;</option>
+            <option value="<?php echo $alumno[0]['Empresa'] ?>" selected><?php echo $alumno[0]['Empresa'] ?></option>
 
                 <?php foreach ($empresa as $opciones) { ?>
 
@@ -119,12 +126,9 @@
         <div class="m-3 text-center">
             <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
             <input type="submit" class="btn btn-primary btn-lg" value="Modificar">
-            <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
         </div>
     </form>
-    <?php
-    }
-    ?>
+    
 <script>
     function nif() {
     const dni = document.getElementById("dni").value;

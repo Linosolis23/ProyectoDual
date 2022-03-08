@@ -60,7 +60,6 @@
         <div class="m-3 text-center">
             <input type="hidden" value="<?php echo $_GET["id"] ?>" name="id">
             <input type="submit" class="btn btn-primary btn-lg" value="Modificar">
-            <input type="reset" class="btn btn-danger btn-lg" value="Borrar">
         </div>
     </form>
     <?php

@@ -156,6 +156,13 @@ class consultas extends DB
         return $resultado;
     }
 
+    public function mostrarEmpresa_sel($empresa)
+    {
+        $sql = "SELECT * FROM empresa WHERE Nombre_empresa !='".$empresa."'";
+        $resultado = $this->realizarConsulta($sql);
+        return $resultado;
+    }
+
     //mostrar empresa.php
 
     public function mostrarempresa()
