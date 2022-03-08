@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="../css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/local.css">
+
+    <title>Tabla Profesores</title>
 </head>
 
 <body>

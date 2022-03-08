@@ -136,7 +136,7 @@ class consultas extends DB
 
     public function mostrarprofesor()
     {
-        $sql = "SELECT * FROM profesor";
+        $sql = "SELECT * FROM profesor WHERE ID_Profesor != 1";
         $resultado = $this->realizarConsulta($sql);
         if ($resultado != null) {
             $tabla = [];
@@ -313,10 +313,29 @@ class consultas extends DB
         }
 	}
 
-    public function modificarAlumno($id, $nombre, $ape1, $ape2, $con, $dni, $fecha, $email, $tel, $emp, $tut, $hdual, $hfct) {
-        $sql= "UPDATE alumno SET Nombre='".$nombre."', Apellido1='".$ape1."', Apellido2='".$ape2."', Contraseña='".$con."', DNI='".$dni."', Fecha_Nacimiento='".$fecha."', Email='".$email."', Telefono=".$tel.", Empresa='".$emp."', Tutor='".$tut."', NºHoras_Dual=".$hdual.", NºHoras_FCT=".$hfct." WHERE ID_Alumno=".$id;
+    public function modificarAlumno($id, $nombre, $ape1, $ape2, $dni, $fecha, $email, $tel, $emp, $tut, $hdual, $hfct) {
+        $sql= "UPDATE alumno SET Nombre='".$nombre."', Apellido1='".$ape1."', Apellido2='".$ape2."', DNI='".$dni."', Fecha_Nacimiento='".$fecha."', Email='".$email."', Telefono=".$tel.", Empresa='".$emp."', Tutor='".$tut."', NºHoras_Dual=".$hdual.", NºHoras_FCT=".$hfct." WHERE ID_Alumno=".$id;
         $this->realizarConsulta($sql);
     }
+
+    public function modificarAlumnoProfesor($idProfe, $idAlu) {
+        $sql= "UPDATE alumno_profesor SET ID_Profesor=".$idProfe." WHERE ID_Alumno=".$idAlu;
+        $this->realizarConsulta($sql);
+    }
+
+    public function pillarIDprofe($nombre) {
+		$sql= "SELECT ID_Profesor FROM profesor WHERE Nombre='".$nombre."'";
+		$resultado = $this->realizarConsulta($sql);
+		if ($resultado != null) {
+            $tabla = [];
+            while ($fila = $resultado->fetch_assoc()) {
+                $tabla[] = $fila;
+            }
+            return $tabla;
+        } else {
+            return null;
+        }
+	}
 
     public function empresaAeditar($id) {
 		$sql= "SELECT * FROM empresa WHERE ID_Empresa=".$id;
